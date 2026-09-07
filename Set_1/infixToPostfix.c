@@ -83,8 +83,7 @@ int main()
     char expression[100];
 
     printf("Enter infix expression: ");
-    scanf("%s", expression);
-
+    scanf(" %[^\n]", expression);
     printf("Postfix expression: ");
     infixToPostfix(expression);
 
