@@ -21,12 +21,12 @@ void prim()
 
     for (i = 0; i < n - 1; i++)
     {
-        min = INF;
+        min = INF; // reset min to start process from start again.
         u = -1;
 
         for (j = 0; j < n; j++)
         {
-            if (!used[j] && key[j] < min)
+            if (!used[j] && key[j] < min) // find the vertex with smallest key to it.
             {
                 min = key[j];
                 u = j;
@@ -35,19 +35,19 @@ void prim()
 
         used[u] = 1;
 
-        for (j = 0; j < n; j++)
+        for (j = 0; j < n; j++) //check all edge of u which can give us the next edge to pick and pick the smallest
         {
-            if (graph[u][j] != 0 &&
+            if (graph[u][j] != 0 && //checking if an edge exists if yes j needs not to be visited and we should have a edge which has smaller edge then key we picked
                 !used[j] &&
                 graph[u][j] < key[j])
             {
-                key[j] = graph[u][j];
-                parent[j] = u;
+                key[j] = graph[u][j]; // assign the weight as we visited it 
+                parent[j] = u; //assigning the current as parent as we choose this vertex to go
             }
         }
     }
 
-    printf("Minimum Spanning Tree:\n");
+    printf("Minimum Spanning Tree:\n"); // printing normally
 
     for (i = 1; i < n; i++)
     {
@@ -57,7 +57,7 @@ void prim()
 }
 
 
-int main()
+int main() 
 {
     int i, j;
 
